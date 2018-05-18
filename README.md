@@ -1,2 +1,2 @@
 # gunbazar
-Poprawnie działająca kopia ArmyBazar'u
+Poprawnie działająca kopia AB'u
