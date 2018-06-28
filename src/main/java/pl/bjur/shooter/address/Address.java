@@ -19,7 +19,7 @@ public class Address extends EntityId {
     private String name;
 
     @NotNull
-    private String streetWithNuber;
+    private String street;
 
     @Pattern(regexp = "^[0-9][0-9]-[0-9][0-9][0-9]$")
     @NotNull
@@ -27,4 +27,6 @@ public class Address extends EntityId {
 
     @NotNull
     private String city;
+
+    private String phoneNumber;
 }
