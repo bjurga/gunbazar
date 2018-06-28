@@ -1,6 +1,9 @@
 package pl.bjur.strzelec.dupa.model.abstracts;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 
 import javax.persistence.GeneratedValue;
@@ -9,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 public abstract class EntityWithId {
 
     @Id
