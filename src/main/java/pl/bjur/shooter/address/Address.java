@@ -1,6 +1,7 @@
-package pl.bjur.strzelec.dupa.commons;
+package pl.bjur.shooter.address;
 
 import lombok.*;
+import pl.bjur.shooter.commons.EntityWithId;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;

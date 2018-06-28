@@ -1,4 +1,4 @@
-package pl.bjur.strzelec.dupa.commons;
+package pl.bjur.shooter.commons;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

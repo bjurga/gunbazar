@@ -1,12 +1,12 @@
-package pl.bjur.strzelec.dupa;
+package pl.bjur.shooter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DupaApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(DupaApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

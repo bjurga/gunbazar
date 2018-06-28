@@ -1,14 +1,14 @@
-package pl.bjur.strzelec.dupa;
+package pl.bjur.shooter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.bjur.strzelec.dupa.shootingClub.ShootingClub;
+import pl.bjur.shooter.club.Club;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DupaApplicationTests {
+public class ApplicationTests {
 
     @Test
     public void contextLoads() {
@@ -16,7 +16,7 @@ public class DupaApplicationTests {
 
     @Test
     public void dupa() {
-        ShootingClub shootingClub = new ShootingClub();
+        Club club = new Club();
     }
 
 }

@@ -1,7 +1,7 @@
-package pl.bjur.strzelec.dupa.user;
+package pl.bjur.shooter.user;
 
 import lombok.*;
-import pl.bjur.strzelec.dupa.commons.EntityWithId;
+import pl.bjur.shooter.commons.EntityWithId;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
