@@ -1,7 +1,7 @@
-package pl.bjur.strzelec.dupa.user;
+package pl.bjur.shooter.user;
 
 import lombok.*;
-import pl.bjur.strzelec.dupa.commons.EntityWithId;
+import pl.bjur.shooter.commons.EntityId;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends EntityWithId {
+public class User extends EntityId {
 
     @Column(unique = true)
     @NotBlank

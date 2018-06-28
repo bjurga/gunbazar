@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>pl.bjur.strzelec</groupId>
-	<artifactId>dupa</artifactId>
+	<groupId>pl.bjur</groupId>
+	<artifactId>shooter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>dupa</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Shooter</name>
+	<description>Web based system to support shooters in Poland</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,10 +25,6 @@
 	</properties>
 
 	<dependencies>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-		<!--</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -37,10 +33,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-security</artifactId>-->
-		<!--</dependency>-->
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -57,11 +49,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.security</groupId>-->
-			<!--<artifactId>spring-security-test</artifactId>-->
-			<!--<scope>test</scope>-->
-		<!--</dependency>-->
 	</dependencies>
 
 	<build>

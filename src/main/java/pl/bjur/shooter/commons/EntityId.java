@@ -1,4 +1,4 @@
-package pl.bjur.strzelec.dupa.commons;
+package pl.bjur.shooter.commons;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
 @Getter
 @Setter
 @EqualsAndHashCode
-public abstract class EntityWithId {
+public abstract class EntityId {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
