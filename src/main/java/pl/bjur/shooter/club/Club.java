@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.address.Address;
-import pl.bjur.shooter.commons.EntityWithId;
+import pl.bjur.shooter.commons.EntityId;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Club extends EntityWithId {
+public class Club extends EntityId {
 
     private String displayName;
 

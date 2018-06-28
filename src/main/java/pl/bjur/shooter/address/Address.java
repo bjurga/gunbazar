@@ -1,7 +1,7 @@
 package pl.bjur.shooter.address;
 
 import lombok.*;
-import pl.bjur.shooter.commons.EntityWithId;
+import pl.bjur.shooter.commons.EntityId;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Address extends EntityWithId {
+public class Address extends EntityId {
 
     @NotNull
     private String name;
