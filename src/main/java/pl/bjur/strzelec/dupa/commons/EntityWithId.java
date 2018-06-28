@@ -1,10 +1,8 @@
 package pl.bjur.strzelec.dupa.commons;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

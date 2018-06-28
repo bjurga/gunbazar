@@ -10,17 +10,22 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends EntityWithId{
+public class User extends EntityWithId {
 
     @Column(unique = true)
-    @NotBlank private String displayName;
+    @NotBlank
+    private String displayName;
 
-    @Email @Column(unique = true)
-    @NotBlank private String email;
+    @Email
+    @Column(unique = true)
+    @NotBlank
+    private String email;
 
-    @NotNull private String password;
+    @NotNull
+    private String password;
 }

@@ -9,7 +9,8 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor

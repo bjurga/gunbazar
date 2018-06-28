@@ -10,13 +10,13 @@ import pl.bjur.strzelec.dupa.shootingClub.ShootingClub;
 @SpringBootTest
 public class DupaApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
-	@Test
-	public void dupa() {
-		ShootingClub shootingClub = new ShootingClub();
-	}
+    @Test
+    public void dupa() {
+        ShootingClub shootingClub = new ShootingClub();
+    }
 
 }
