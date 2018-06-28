@@ -1,6 +1,7 @@
-package pl.bjur.strzelec.dupa.model.abstracts;
+package pl.bjur.strzelec.dupa.commons;
 
 import lombok.*;
+import pl.bjur.strzelec.dupa.commons.EntityWithId;
 
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Email;

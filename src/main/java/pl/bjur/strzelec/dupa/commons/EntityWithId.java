@@ -1,4 +1,4 @@
-package pl.bjur.strzelec.dupa.model.abstracts;
+package pl.bjur.strzelec.dupa.commons;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
