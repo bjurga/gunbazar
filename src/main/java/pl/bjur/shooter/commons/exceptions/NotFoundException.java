@@ -1,4 +1,4 @@
-package pl.bjur.shooter.commons.Exceptions;
+package pl.bjur.shooter.commons.exceptions;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(Long id) {

@@ -1,4 +1,4 @@
-package pl.bjur.shooter.commons.Exceptions;
+package pl.bjur.shooter.commons.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

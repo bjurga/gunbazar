@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.QuerydslJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.transaction.annotation.Transactional;
-import pl.bjur.shooter.commons.Exceptions.NotFoundException;
+import pl.bjur.shooter.commons.exceptions.NotFoundException;
 
 import javax.persistence.EntityManager;
 
