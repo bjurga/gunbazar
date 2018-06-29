@@ -1,0 +1,31 @@
+management:
+    info:
+        defaults:
+            enabled: false
+    security:
+      enabled: false
+
+spring:
+  application:
+    name: Schooter
+  profiles:
+    active: default
+  datasource:
+     url: jdbc:h2:mem:ework;DB_CLOSE_ON_EXIT=FALSE
+     driver-class-name: org.h2.Driver
+     username: admin
+     password:
+  resources:
+     static-locations:
+       - classpath:/resources/
+       - classpath:/META-INF/resources/
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+hibernate:
+  dialect: org.hibernate.dialect.H2Dialect
