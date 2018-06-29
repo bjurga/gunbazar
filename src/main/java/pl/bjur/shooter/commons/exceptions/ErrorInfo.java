@@ -2,19 +2,19 @@ package pl.bjur.shooter.commons.exceptions;
 
 
 public class ErrorInfo {
-	private final ERROR_CODE code;
-	private final String message;
+    private final ERROR_CODE code;
+    private final String message;
 
-	public ErrorInfo(ERROR_CODE code, String message) {
-		this.code = code;
-		this.message = message;
-	}
+    public ErrorInfo(ERROR_CODE code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
-	public ERROR_CODE getCode() {
-		return code;
-	}
+    public ERROR_CODE getCode() {
+        return code;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 }
