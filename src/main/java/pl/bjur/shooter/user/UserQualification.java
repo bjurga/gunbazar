@@ -1,6 +1,6 @@
 //package pl.bjur.shooter.user;
 //
-//import pl.bjur.shooter.commons.EntityId;
+//import pl.bjur.shooter.commons.IdEntity;
 //
 //import javax.validation.constraints.NotBlank;
 //import java.util.Date;
@@ -10,7 +10,7 @@
 //@Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
-//public class UserQualification extends EntityId {
+//public class UserQualification extends IdEntity {
 //
 //    @NotBlank
 //    private String name;

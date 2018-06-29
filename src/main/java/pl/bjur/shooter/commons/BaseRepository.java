@@ -6,7 +6,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 
 @NoRepositoryBean
-public interface BaseRepository<T extends EntityId> extends JpaRepository<T, Long>, QuerydslPredicateExecutor<T> {
+public interface BaseRepository<T extends IdEntity> extends JpaRepository<T, Long>, QuerydslPredicateExecutor<T> {
 
     T loadOne(Long id);
 
