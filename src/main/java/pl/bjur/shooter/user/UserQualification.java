@@ -5,6 +5,11 @@
 //import javax.validation.constraints.NotBlank;
 //import java.util.Date;
 //
+//@Entity
+//@Getter
+//@Setter
+//@AllArgsConstructor
+//@NoArgsConstructor
 //public class UserQualification extends EntityId {
 //
 //    @NotBlank
@@ -12,5 +17,7 @@
 //
 //    private String qualificationNumber;
 //
-//    private Date validSince, validTo;
+//    private LocalDateTime validSince;
+//
+//    private LocalDateTime validTo;
 //}

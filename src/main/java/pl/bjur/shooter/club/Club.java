@@ -5,14 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.address.Address;
-import pl.bjur.shooter.commons.EntityId;
+import pl.bjur.shooter.commons.IdEntity;
 import pl.bjur.shooter.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
@@ -20,7 +19,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Club extends EntityId {
+public class Club extends IdEntity {
 
     @NotBlank
     private String displayName;
@@ -33,14 +32,12 @@ public class Club extends EntityId {
     private User owner;
 
     @NotBlank //?
-    private String pzssClubLicenceNumber;
+    private String pzssLicence;
 
-    @NotNull
-    private Boolean isConfirmed;
+    private boolean confirmed;
 
     @OneToMany
     private Set<User> members;
 
-    @NotNull
-    private Boolean isMemberRegistrationOpen;
+    private boolean registrationOpen;
 }
