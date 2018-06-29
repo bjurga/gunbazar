@@ -123,7 +123,6 @@
             <artifactId>spring-data-commons-core</artifactId>
             <version>1.4.1.RELEASE</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
