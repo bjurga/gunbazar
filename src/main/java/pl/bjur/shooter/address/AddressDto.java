@@ -1,18 +1,13 @@
 package pl.bjur.shooter.address;
 
 import lombok.*;
-import pl.bjur.shooter.commons.EntityId;
+import pl.bjur.shooter.commons.IdDto;
 
-import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-@Entity
 @Getter
 @Setter
-@EqualsAndHashCode(callSuper = true)
-@NoArgsConstructor
-@AllArgsConstructor
-public class Address extends EntityId {
+public class AddressDto extends IdDto {
 
     @NotNull
     private String name;
