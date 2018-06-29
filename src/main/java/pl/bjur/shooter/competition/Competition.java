@@ -6,9 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.club.Club;
 import pl.bjur.shooter.commons.IdEntity;
+import pl.bjur.shooter.competition.category.Category;
+import pl.bjur.shooter.competition.result.Result;
 import pl.bjur.shooter.shootingrange.ShootingRange;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
@@ -31,7 +34,7 @@ public class Competition extends IdEntity {
     private ShootingRange shootingRange;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
     private Club owner;
 
     @NotNull
@@ -52,6 +55,6 @@ public class Competition extends IdEntity {
     private Set<Result> results;
 
     @OneToMany
-    private Set<CompetitionCategory> avaibleCategories;
+    private Set<Category> avaibleCategories;
 
 }

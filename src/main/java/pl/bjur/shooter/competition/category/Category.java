@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition;
+package pl.bjur.shooter.competition.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CompetitionCategory extends IdEntity {
+public class Category extends IdEntity {
 
     @NotBlank
     private String name;

@@ -1,14 +1,16 @@
-package pl.bjur.shooter.competition;
+package pl.bjur.shooter.competition.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.commons.IdEntity;
+import pl.bjur.shooter.competition.Competition;
+import pl.bjur.shooter.competition.category.Category;
 import pl.bjur.shooter.user.User;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -21,15 +23,16 @@ import java.math.BigDecimal;
 public class Result extends IdEntity {
 
     @NotBlank
+    @ManyToOne
     private User user;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
     private Competition competition;
 
     @NotNull
-    @OneToOne
-    private CompetitionCategory competitionCategory;
+    @ManyToOne
+    private Category category;
 
     @NotNull
     private BigDecimal score;
