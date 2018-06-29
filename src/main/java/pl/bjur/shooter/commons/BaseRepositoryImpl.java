@@ -9,7 +9,7 @@ import pl.bjur.shooter.commons.exceptions.NotFoundException;
 import javax.persistence.EntityManager;
 
 @NoRepositoryBean
-public class BaseRepositoryImpl<T extends EntityId> extends QuerydslJpaRepository<T, Long> implements BaseRepository<T> {
+public class BaseRepositoryImpl<T extends IdEntity> extends QuerydslJpaRepository<T, Long> implements BaseRepository<T> {
 
     public BaseRepositoryImpl(JpaEntityInformation<T, Long> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);

@@ -1,4 +1,4 @@
-package pl.bjur.shooter.user;
+package pl.bjur.shooter.competition.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,21 +8,19 @@ import pl.bjur.shooter.commons.IdEntity;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserQualification extends IdEntity {
+public class Category extends IdEntity {
 
     @NotBlank
     private String name;
 
-    private String qualificationNumber;
+    @NotBlank
+    private String description;
 
-    private LocalDateTime validSince;
-
-    private LocalDateTime validTo;
+    //TODO: distance, typBroni, typTarczy, czas, isDynamic
 }
