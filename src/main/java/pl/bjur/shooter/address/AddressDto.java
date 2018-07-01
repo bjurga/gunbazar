@@ -1,6 +1,7 @@
 package pl.bjur.shooter.address;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import pl.bjur.shooter.commons.IdDto;
 
 import javax.validation.constraints.NotNull;
@@ -21,5 +22,5 @@ public class AddressDto extends IdDto {
     @NotNull
     private String city;
 
-    private String phoneNumber;
+    private String phone;
 }

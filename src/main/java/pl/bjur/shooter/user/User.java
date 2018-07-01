@@ -5,9 +5,11 @@ import pl.bjur.shooter.commons.IdEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -29,6 +31,6 @@ public class User extends IdEntity {
     @NotNull
     private String password;
 
-//    @OneToMany
-//    private Set<UserQualification> qualifications;
+    @OneToMany
+    private Set<UserQualification> qualifications;
 }
