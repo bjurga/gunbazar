@@ -1,9 +1,18 @@
 package pl.bjur.shooter.address
 
+import org.springframework.beans.factory.annotation.Autowired
 import pl.bjur.shooter.BaseControllerIT
+import pl.bjur.shooter.BaseModels
 import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 
+import static pl.bjur.shooter.AssertionUtil.assertEqualAddress
+import static pl.bjur.shooter.AssertionUtil.assertErrorCode
+import static pl.bjur.shooter.BaseModels.*
+
 class AddressControllerIT extends BaseControllerIT {
+
+    @Autowired
+    private BaseModels baseModels
 
     def setupSpec() {
         endpointUrl = '/api/address'
@@ -11,9 +20,9 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return all"() {
         given:
-        saveAddress()
+        baseModels.saveAddress()
         def previousCount = getForDtos().size()
-        saveAddress()
+        baseModels.saveAddress()
 
         when:
         def response = getForDtos()
@@ -24,7 +33,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should create one"() {
         given:
-        def addressDto = newAddressDto()
+        def addressDto = baseModels.newAddressDto()
 
         when:
         def response = postForDto(addressDto)
@@ -35,7 +44,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return one"() {
         given:
-        def addressDto = saveAddress()
+        def addressDto = baseModels.saveAddress()
 
         when:
         def response = getForDto(addressDto.id)
@@ -47,15 +56,14 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should edit one"() {
         given:
-        def address = saveAddress()
+        def address = baseModels.saveAddress()
         def editedAddressDto = AddressDto.builder()
                 .id(address.id)
                 .name(NAME + random())
-                .city(NAME + random())
-                .street(NAME + random())
-                .zipCode(NAME + random())
-                .city(NAME + random())
-                .phoneNumber(NAME + random()).build()
+                .city(CITY + random())
+                .street(STREET + random())
+                .zipCode(ZIP_CODE + random())
+                .phoneNumber(PHONE_NUMBER + random()).build()
 
         when:
         def response = putForDto(address.id, editedAddressDto)
@@ -67,7 +75,7 @@ class AddressControllerIT extends BaseControllerIT {
     def "Should delete one"() {
         given:
         def previousCount = getForDtos().size()
-        def address = saveAddress()
+        def address = baseModels.saveAddress()
 
         when:
         def deleteResponse = deleteOne(address.id)
@@ -91,7 +99,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty name"() {
         given:
-        def addressDto = saveAddress()
+        def addressDto = baseModels.saveAddress()
         addressDto.name = null
 
         when:
@@ -104,7 +112,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty city"() {
         given:
-        def addressDto = saveAddress()
+        def addressDto = baseModels.saveAddress()
         addressDto.city = null
 
         when:
@@ -117,7 +125,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty street"() {
         given:
-        def addressDto = saveAddress()
+        def addressDto = baseModels.saveAddress()
         addressDto.street = null
 
         when:
@@ -130,7 +138,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty zipCode"() {
         given:
-        def addressDto = saveAddress()
+        def addressDto = baseModels.saveAddress()
         addressDto.zipCode = null
 
         when:
@@ -139,13 +147,5 @@ class AddressControllerIT extends BaseControllerIT {
         then:
         response.status == 400
         assertErrorCode(response, ERROR_CODE.NOT_VALID_PARAM)
-    }
-
-    void assertEqualAddress(def response, def dto) {
-        assert response.name == dto.name
-        assert response.street == dto.street
-        assert response.zipCode == dto.zipCode
-        assert response.city == dto.city
-        assert response.phoneNumber == dto.phoneNumber
     }
 }

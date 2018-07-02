@@ -5,17 +5,12 @@ import groovy.json.JsonSlurper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
-import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.context.WebApplicationContext
-import pl.bjur.shooter.address.Address
-import pl.bjur.shooter.address.AddressDto
-import pl.bjur.shooter.address.AddressRepository
-import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 import spock.lang.Shared
 import spock.lang.Specification
 
@@ -26,28 +21,17 @@ class BaseControllerIT extends Specification {
     @Autowired
     protected WebApplicationContext context
 
-    @Autowired
-    private AddressRepository repository
-
     @Shared
     protected MockMvc mvc
 
     @Shared
     protected def endpointUrl
 
-    protected def NAME = "name" + random()
-    protected def CITY = "city" + random()
-    protected def STREET = "street" + random()
-    protected def ZIP_CODE = "zipCode" + random()
-    protected def PHONE_NUMBER = "phoneNumber" + random()
-
-    protected def NOT_EXISTING_ID = 123498 + random()
-
     def setup() {
         mvc = MockMvcBuilders.webAppContextSetup(context).build()
     }
 
-    def fromJson(String content) {
+    static def fromJson(String content) {
         new JsonSlurper().parseText(content)
     }
 
@@ -119,17 +103,5 @@ class BaseControllerIT extends Specification {
 
     def deleteOne(id) {
         perform(MockMvcRequestBuilders.delete(byId(id)), null).response
-    }
-
-    void assertErrorCode(MockHttpServletResponse response, ERROR_CODE error_code) {
-        assert fromJson(response.contentAsString).code == error_code.name()
-    }
-
-    def saveAddress() {
-        repository.save(Address.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phoneNumber(PHONE_NUMBER).build())
-    }
-
-    def newAddressDto() {
-        AddressDto.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phoneNumber(PHONE_NUMBER).build()
     }
 }
