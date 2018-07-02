@@ -47,13 +47,13 @@ public class CompetitionDto extends IdDto {
     private Set<ResultDto> results;
 
     @OneToMany
-    private Set<CategoryDto> avaibleCategories;
+    private Set<CategoryDto> availableCategories;
 
     @Builder
     public CompetitionDto(Long id, @NotBlank String name, @NotNull ShootingRange shootingRange, @NotNull ClubDto owner,
                           @NotNull LocalDateTime startTime, @NotNull LocalDateTime endTime,
                           @NotNull LocalDateTime onSiteRegistrationEnd, @NotNull LocalDateTime onlineRegistrationEnd,
-                          String description, Set<ResultDto> results, Set<CategoryDto> avaibleCategories) {
+                          String description, Set<ResultDto> results, Set<CategoryDto> availableCategories) {
         super(id);
         this.name = name;
         this.shootingRange = shootingRange;
@@ -64,6 +64,6 @@ public class CompetitionDto extends IdDto {
         this.onlineRegistrationEnd = onlineRegistrationEnd;
         this.description = description;
         this.results = results;
-        this.avaibleCategories = avaibleCategories;
+        this.availableCategories = availableCategories;
     }
 }

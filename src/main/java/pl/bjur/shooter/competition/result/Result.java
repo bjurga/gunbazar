@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Result extends IdEntity {
 
-    @NotBlank
+    @NotNull
     @ManyToOne
     private User user;
 
@@ -41,7 +41,7 @@ public class Result extends IdEntity {
 
     private String notes;
 
-    private boolean outsideClasification;
+    private boolean outsideClassification;
 
     private boolean disqualified;
 }

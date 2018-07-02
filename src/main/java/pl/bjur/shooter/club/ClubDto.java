@@ -7,10 +7,13 @@ import lombok.Setter;
 import pl.bjur.shooter.address.Address;
 import pl.bjur.shooter.commons.IdDto;
 import pl.bjur.shooter.user.User;
+import pl.bjur.shooter.user.UserDto;
 
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Getter
@@ -19,14 +22,14 @@ import java.util.Set;
 public class ClubDto extends IdDto {
 
     @NotBlank
-    private String displayName;
+    private String name;
 
     @OneToOne
     private Address address;
 
-    @OneToOne
-    @NotBlank
-    private User owner;
+    @ManyToOne
+    @NotNull
+    private UserDto owner;
 
     private String pzssLicence;
 
@@ -38,10 +41,10 @@ public class ClubDto extends IdDto {
     private boolean registrationOpen;
 
     @Builder
-    public ClubDto(Long id, @NotBlank String displayName, Address address, @NotBlank User owner, String pzssLicence,
+    public ClubDto(Long id, @NotBlank String name, Address address, @NotNull UserDto owner, String pzssLicence,
                    boolean confirmed, Set<User> members, boolean registrationOpen) {
         super(id);
-        this.displayName = displayName;
+        this.name = name;
         this.address = address;
         this.owner = owner;
         this.pzssLicence = pzssLicence;

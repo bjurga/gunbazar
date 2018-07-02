@@ -10,7 +10,6 @@ import pl.bjur.shooter.competition.category.CategoryDto;
 import pl.bjur.shooter.user.UserDto;
 
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
@@ -19,7 +18,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ResultDto extends IdDto {
 
-    @NotBlank
+    @NotNull
     @ManyToOne
     private UserDto user;
 
@@ -38,14 +37,14 @@ public class ResultDto extends IdDto {
 
     private String notes;
 
-    private boolean outsideClasification;
+    private boolean outsideClassification;
 
     private boolean disqualified;
 
     @Builder
-    public ResultDto(Long id, @NotBlank UserDto user, @NotNull CompetitionDto competition,
+    public ResultDto(Long id, @NotNull UserDto user, @NotNull CompetitionDto competition,
                      @NotNull CategoryDto category, @NotNull BigDecimal score, Integer centerHits, String notes,
-                     boolean outsideClasification, boolean disqualified) {
+                     boolean outsideClassification, boolean disqualified) {
         super(id);
         this.user = user;
         this.competition = competition;
@@ -53,7 +52,7 @@ public class ResultDto extends IdDto {
         this.score = score;
         this.centerHits = centerHits;
         this.notes = notes;
-        this.outsideClasification = outsideClasification;
+        this.outsideClassification = outsideClassification;
         this.disqualified = disqualified;
     }
 }

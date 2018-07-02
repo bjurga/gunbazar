@@ -56,6 +56,6 @@ public class Competition extends IdEntity {
     private Set<Result> results;
 
     @OneToMany
-    private Set<Category> avaibleCategories;
+    private Set<Category> availableCategories;
 
 }
