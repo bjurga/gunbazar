@@ -1,4 +1,4 @@
-package pl.bjur.shooter.user;
+package pl.bjur.shooter.user.userQualification;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

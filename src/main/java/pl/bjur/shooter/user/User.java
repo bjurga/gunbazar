@@ -2,6 +2,7 @@ package pl.bjur.shooter.user;
 
 import lombok.*;
 import pl.bjur.shooter.commons.IdEntity;
+import pl.bjur.shooter.user.userQualification.UserQualification;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
