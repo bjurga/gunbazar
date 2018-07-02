@@ -24,6 +24,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//TODO: rename it to Tournament
 public class Competition extends IdEntity {
 
     @NotBlank
