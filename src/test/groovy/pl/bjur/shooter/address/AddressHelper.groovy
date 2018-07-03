@@ -1,10 +1,9 @@
-package groovy.pl.bjur.shooter.address
+package pl.bjur.shooter.address
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import pl.bjur.shooter.address.Address
-import pl.bjur.shooter.address.AddressDto
-import pl.bjur.shooter.address.AddressRepository
+
+import static pl.bjur.shooter.commons.TestDummies.random
 
 @Component
 class AddressHelper {
@@ -18,10 +17,6 @@ class AddressHelper {
     static def STREET = "street" + random()
     static def ZIP_CODE = "zipCode" + random()
     static def PHONE = "phone" + random()
-
-    static def random() {
-        System.nanoTime() + Math.round(Math.random() * 10000)
-    }
 
     def saveAddress() {
         addressRepository.save(Address.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phone(PHONE).build())
@@ -37,16 +32,5 @@ class AddressHelper {
         assert response.zipCode == dto.zipCode
         assert response.city == dto.city
         assert response.phone == dto.phone
-    }
-
-    AddressHelper() {
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
-        println "----------------------------------------------------------------------------------------------"
     }
 }

@@ -1,4 +1,4 @@
-package pl.bjur.shooter
+package pl.bjur.shooter.commons
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.json.JsonSlurper
@@ -12,6 +12,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.context.WebApplicationContext
+import pl.bjur.shooter.Application
 import spock.lang.Shared
 import spock.lang.Specification
 

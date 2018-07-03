@@ -1,11 +1,11 @@
-package pl.bjur.shooter
+package pl.bjur.shooter.commons
 
 import lombok.AccessLevel
 import lombok.NoArgsConstructor
 import org.springframework.mock.web.MockHttpServletResponse
 import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 
-import static pl.bjur.shooter.BaseControllerIT.fromJson
+import static BaseControllerIT.fromJson
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 class AssertionUtil {

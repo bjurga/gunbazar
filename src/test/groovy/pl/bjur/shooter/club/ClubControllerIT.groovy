@@ -1,6 +1,7 @@
-import groovy.pl.bjur.shooter.club.ClubHelper
+package pl.bjur.shooter.club
+
 import org.springframework.beans.factory.annotation.Autowired
-import pl.bjur.shooter.BaseControllerIT
+import pl.bjur.shooter.commons.BaseControllerIT
 
 class ClubControllerIT extends BaseControllerIT {
 

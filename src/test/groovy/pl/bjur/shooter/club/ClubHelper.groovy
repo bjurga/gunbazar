@@ -1,8 +1,9 @@
-package groovy.pl.bjur.shooter.club
+package pl.bjur.shooter.club
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import pl.bjur.shooter.club.ClubRepository
+
+import static pl.bjur.shooter.commons.TestDummies.random
 
 @Component
 class ClubHelper {

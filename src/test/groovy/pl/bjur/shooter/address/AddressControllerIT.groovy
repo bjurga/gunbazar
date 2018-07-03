@@ -1,12 +1,12 @@
 package pl.bjur.shooter.address
 
-import groovy.pl.bjur.shooter.address.AddressHelper
 import org.springframework.beans.factory.annotation.Autowired
-import pl.bjur.shooter.BaseControllerIT
+import pl.bjur.shooter.commons.BaseControllerIT
 import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 
-import static groovy.pl.bjur.shooter.address.AddressHelper.*
-import static pl.bjur.shooter.AssertionUtil.assertErrorCode
+import static pl.bjur.shooter.address.AddressHelper.*
+import static pl.bjur.shooter.commons.AssertionUtil.assertErrorCode
+import static pl.bjur.shooter.commons.TestDummies.NOT_EXISTING_ID
 
 class AddressControllerIT extends BaseControllerIT {
 
