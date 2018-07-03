@@ -18,6 +18,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class User extends IdEntity {
 
     @Column(unique = true)

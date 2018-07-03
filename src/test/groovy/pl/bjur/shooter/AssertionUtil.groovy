@@ -14,11 +14,5 @@ class AssertionUtil {
         assert fromJson(response.contentAsString).code == error_code.name()
     }
 
-    static void assertEqualAddress(def response, def dto) {
-        assert response.name == dto.name
-        assert response.street == dto.street
-        assert response.zipCode == dto.zipCode
-        assert response.city == dto.city
-        assert response.phoneNumber == dto.phoneNumber
-    }
+
 }

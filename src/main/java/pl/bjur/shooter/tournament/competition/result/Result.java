@@ -1,9 +1,6 @@
 package pl.bjur.shooter.tournament.competition.result;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.commons.IdEntity;
 import pl.bjur.shooter.tournament.Tournament;
 import pl.bjur.shooter.tournament.competition.Competition;
@@ -22,6 +19,7 @@ import static pl.bjur.shooter.commons.Constants.RESULT_NOTE_MAX_CHARS;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Result extends IdEntity {
 
     @NotNull

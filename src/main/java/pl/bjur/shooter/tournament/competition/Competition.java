@@ -1,9 +1,6 @@
 package pl.bjur.shooter.tournament.competition;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.commons.IdEntity;
 
 import javax.persistence.Entity;
@@ -14,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Competition extends IdEntity {
 
     @NotBlank

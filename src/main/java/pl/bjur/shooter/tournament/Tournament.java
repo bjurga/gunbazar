@@ -1,9 +1,6 @@
 package pl.bjur.shooter.tournament;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.club.Club;
 import pl.bjur.shooter.commons.IdEntity;
 import pl.bjur.shooter.shootingrange.ShootingRange;
@@ -24,7 +21,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//TODO: rename it to Tournament
+@Builder
 public class Tournament extends IdEntity {
 
     @NotBlank

@@ -1,18 +1,17 @@
 package pl.bjur.shooter.address
 
+import groovy.pl.bjur.shooter.address.AddressHelper
 import org.springframework.beans.factory.annotation.Autowired
 import pl.bjur.shooter.BaseControllerIT
-import pl.bjur.shooter.BaseModels
 import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 
-import static pl.bjur.shooter.AssertionUtil.assertEqualAddress
+import static groovy.pl.bjur.shooter.address.AddressHelper.*
 import static pl.bjur.shooter.AssertionUtil.assertErrorCode
-import static pl.bjur.shooter.BaseModels.*
 
 class AddressControllerIT extends BaseControllerIT {
 
     @Autowired
-    private BaseModels baseModels
+    private AddressHelper addressHelper
 
     def setupSpec() {
         endpointUrl = '/api/address'
@@ -20,9 +19,9 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return all"() {
         given:
-        baseModels.saveAddress()
+        addressHelper.saveAddress()
         def previousCount = getForDtos().size()
-        baseModels.saveAddress()
+        addressHelper.saveAddress()
 
         when:
         def response = getForDtos()
@@ -33,7 +32,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should create one"() {
         given:
-        def addressDto = baseModels.newAddressDto()
+        def addressDto = addressHelper.newAddressDto()
 
         when:
         def response = postForDto(addressDto)
@@ -44,7 +43,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return one"() {
         given:
-        def addressDto = baseModels.saveAddress()
+        def addressDto = addressHelper.saveAddress()
 
         when:
         def response = getForDto(addressDto.id)
@@ -56,14 +55,15 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should edit one"() {
         given:
-        def address = baseModels.saveAddress()
+        def address = addressHelper.saveAddress()
         def editedAddressDto = AddressDto.builder()
                 .id(address.id)
                 .name(NAME + random())
                 .city(CITY + random())
                 .street(STREET + random())
                 .zipCode(ZIP_CODE + random())
-                .phoneNumber(PHONE_NUMBER + random()).build()
+                .phone(PHONE + random())
+                .build()
 
         when:
         def response = putForDto(address.id, editedAddressDto)
@@ -75,7 +75,7 @@ class AddressControllerIT extends BaseControllerIT {
     def "Should delete one"() {
         given:
         def previousCount = getForDtos().size()
-        def address = baseModels.saveAddress()
+        def address = addressHelper.saveAddress()
 
         when:
         def deleteResponse = deleteOne(address.id)
@@ -99,7 +99,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty name"() {
         given:
-        def addressDto = baseModels.saveAddress()
+        def addressDto = addressHelper.saveAddress()
         addressDto.name = null
 
         when:
@@ -112,7 +112,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty city"() {
         given:
-        def addressDto = baseModels.saveAddress()
+        def addressDto = addressHelper.saveAddress()
         addressDto.city = null
 
         when:
@@ -125,7 +125,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty street"() {
         given:
-        def addressDto = baseModels.saveAddress()
+        def addressDto = addressHelper.saveAddress()
         addressDto.street = null
 
         when:
@@ -138,7 +138,7 @@ class AddressControllerIT extends BaseControllerIT {
 
     def "Should return 400 on saving empty zipCode"() {
         given:
-        def addressDto = baseModels.saveAddress()
+        def addressDto = addressHelper.saveAddress()
         addressDto.zipCode = null
 
         when:

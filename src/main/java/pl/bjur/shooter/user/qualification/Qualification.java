@@ -1,9 +1,6 @@
 package pl.bjur.shooter.user.qualification;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.commons.IdEntity;
 
 import javax.persistence.Entity;
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Qualification extends IdEntity {
 
     @NotBlank
