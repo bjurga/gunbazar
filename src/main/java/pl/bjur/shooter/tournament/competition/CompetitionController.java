@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition;
+package pl.bjur.shooter.tournament.competition;
 
 import lombok.RequiredArgsConstructor;
 import ma.glasnost.orika.MapperFacade;
@@ -9,7 +9,7 @@ import javax.validation.Valid;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/competition")
+@RequestMapping("/api/category")
 public class CompetitionController implements BaseController<CompetitionDto> {
 
     private final MapperFacade mapper;

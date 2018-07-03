@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition.result;
+package pl.bjur.shooter.tournament.competition.result;
 
 import lombok.RequiredArgsConstructor;
 import ma.glasnost.orika.MapperFacade;

@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition;
+package pl.bjur.shooter.tournament.competition.result;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,21 +7,21 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class CompetitionService {
+public class ResultService {
 
-    private final CompetitionRepository repository;
+    private final ResultRepository repository;
 
     @Transactional
-    public Competition add(Competition entity) {
+    public Result add(Result entity) {
         return repository.create(entity);
     }
 
-    public Competition getById(Long id) {
+    public Result getById(Long id) {
         return repository.loadOne(id);
     }
 
     @Transactional
-    public Competition update(Competition entity) {
+    public Result update(Result entity) {
         return repository.updateExisting(entity);
     }
 

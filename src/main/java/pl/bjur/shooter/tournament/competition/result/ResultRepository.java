@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition.result;
+package pl.bjur.shooter.tournament.competition.result;
 
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import pl.bjur.shooter.commons.BaseRepository;

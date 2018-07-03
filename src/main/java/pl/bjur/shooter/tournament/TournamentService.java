@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition.category;
+package pl.bjur.shooter.tournament;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,21 +7,21 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
+public class TournamentService {
 
-    private final CategoryRepository repository;
+    private final TournamentRepository repository;
 
     @Transactional
-    public Category add(Category entity) {
+    public Tournament add(Tournament entity) {
         return repository.create(entity);
     }
 
-    public Category getById(Long id) {
+    public Tournament getById(Long id) {
         return repository.loadOne(id);
     }
 
     @Transactional
-    public Category update(Category entity) {
+    public Tournament update(Tournament entity) {
         return repository.updateExisting(entity);
     }
 
@@ -30,4 +30,3 @@ public class CategoryService {
         repository.deleteExisting(id);
     }
 }
-

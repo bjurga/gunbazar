@@ -1,12 +1,12 @@
-package pl.bjur.shooter.competition.result;
+package pl.bjur.shooter.tournament.competition.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.commons.IdEntity;
-import pl.bjur.shooter.competition.Competition;
-import pl.bjur.shooter.competition.category.Category;
+import pl.bjur.shooter.tournament.Tournament;
+import pl.bjur.shooter.tournament.competition.Competition;
 import pl.bjur.shooter.user.User;
 
 import javax.persistence.Entity;
@@ -30,11 +30,11 @@ public class Result extends IdEntity {
 
     @NotNull
     @ManyToOne
-    private Competition competition;
+    private Tournament tournament;
 
     @NotNull
     @ManyToOne
-    private Category category;
+    private Competition competition;
 
     @NotNull
     private BigDecimal score;
