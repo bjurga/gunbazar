@@ -28,7 +28,7 @@ class BaseControllerIT extends Specification {
     protected MockMvc mvc
 
     @Shared
-    protected def endpointUrl
+    public def endpointUrl
 
     def setup() {
         mvc = MockMvcBuilders.webAppContextSetup(context).build()

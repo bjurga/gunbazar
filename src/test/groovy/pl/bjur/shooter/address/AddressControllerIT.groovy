@@ -97,6 +97,9 @@ class AddressControllerIT extends BaseControllerIT {
         assertErrorCode(response, ERROR_CODE.NOT_FOUND)
     }
 
+    /// def "Should return 400 on saving empty ID"() ????????????
+
+
     def "Should return 400 on saving empty name"() {
         given:
         def addressDto = addressHelper.saveAddress()

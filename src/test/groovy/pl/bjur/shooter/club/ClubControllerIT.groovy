@@ -1,27 +1,12 @@
 package pl.bjur.shooter.club
 
-import org.springframework.beans.factory.annotation.Autowired
-import pl.bjur.shooter.commons.BaseControllerIT
+import pl.bjur.shooter.commons.GenericControllerIT
 
-class ClubControllerIT extends BaseControllerIT {
-
-    @Autowired
-    private ClubHelper clubHelper
+class ClubControllerIT extends GenericControllerIT<Club, ClubDto, ClubHelper> {
 
     def setupSpec() {
         endpointUrl = '/api/club'
     }
 
-    def "Should return all"() {
-        given:
-        clubHelper.saveAddress()
-        def previousCount = getForDtos().size()
-        clubHelper.saveAddress()
-
-        when:
-        def response = getForDtos()
-
-        then:
-        response.size() == previousCount + 1
-    }
+    //TODO: Return 400 on missing field
 }
