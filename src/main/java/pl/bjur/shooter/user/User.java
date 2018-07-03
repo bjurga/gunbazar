@@ -2,7 +2,7 @@ package pl.bjur.shooter.user;
 
 import lombok.*;
 import pl.bjur.shooter.commons.IdEntity;
-import pl.bjur.shooter.user.userQualification.UserQualification;
+import pl.bjur.shooter.user.qualification.Qualification;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,5 +33,5 @@ public class User extends IdEntity {
     private String password;
 
     @OneToMany
-    private Set<UserQualification> qualifications;
+    private Set<Qualification> qualifications;
 }

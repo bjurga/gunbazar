@@ -1,4 +1,4 @@
-package pl.bjur.shooter.user.userQualification;
+package pl.bjur.shooter.user.qualification;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,14 +15,14 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserQualification extends IdEntity {
+public class Qualification extends IdEntity {
 
     @NotBlank
     private String name;
 
     private String qualificationNumber;
 
-    private LocalDateTime validSince;
+    private LocalDateTime validFrom;
 
     private LocalDateTime validTo;
 }

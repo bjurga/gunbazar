@@ -1,4 +1,4 @@
-package pl.bjur.shooter.user.userQualification;
+package pl.bjur.shooter.user.qualification;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,23 +12,23 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserQualificationDto extends IdDto {
+public class QualificationDto extends IdDto {
 
     @NotBlank
     private String name;
 
     private String qualificationNumber;
 
-    private LocalDateTime validSince;
+    private LocalDateTime validFrom;
 
     private LocalDateTime validTo;
 
     @Builder
-    public UserQualificationDto(Long id, @NotBlank String name, String qualificationNumber, LocalDateTime validSince, LocalDateTime validTo) {
+    public QualificationDto(Long id, @NotBlank String name, String qualificationNumber, LocalDateTime validFrom, LocalDateTime validTo) {
         super(id);
         this.name = name;
         this.qualificationNumber = qualificationNumber;
-        this.validSince = validSince;
+        this.validFrom = validFrom;
         this.validTo = validTo;
     }
 }

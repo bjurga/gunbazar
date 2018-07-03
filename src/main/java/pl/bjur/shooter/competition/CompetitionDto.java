@@ -8,7 +8,7 @@ import pl.bjur.shooter.club.ClubDto;
 import pl.bjur.shooter.commons.IdDto;
 import pl.bjur.shooter.competition.category.CategoryDto;
 import pl.bjur.shooter.competition.result.ResultDto;
-import pl.bjur.shooter.shootingrange.ShootingRange;
+import pl.bjur.shooter.shootingrange.ShootingRangeDto;
 
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
@@ -25,7 +25,7 @@ public class CompetitionDto extends IdDto {
     private String name;
 
     @NotNull
-    private ShootingRange shootingRange;
+    private ShootingRangeDto shootingRange;
 
     @NotNull
     private ClubDto owner;
@@ -50,7 +50,7 @@ public class CompetitionDto extends IdDto {
     private Set<CategoryDto> availableCategories;
 
     @Builder
-    public CompetitionDto(Long id, @NotBlank String name, @NotNull ShootingRange shootingRange, @NotNull ClubDto owner,
+    public CompetitionDto(Long id, @NotBlank String name, @NotNull ShootingRangeDto shootingRange, @NotNull ClubDto owner,
                           @NotNull LocalDateTime startTime, @NotNull LocalDateTime endTime,
                           @NotNull LocalDateTime onSiteRegistrationEnd, @NotNull LocalDateTime onlineRegistrationEnd,
                           String description, Set<ResultDto> results, Set<CategoryDto> availableCategories) {

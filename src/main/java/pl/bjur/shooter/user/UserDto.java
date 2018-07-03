@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.commons.IdDto;
-import pl.bjur.shooter.user.userQualification.UserQualificationDto;
+import pl.bjur.shooter.user.qualification.QualificationDto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -27,10 +27,10 @@ public class UserDto extends IdDto {
     @NotNull
     private String password;
 
-    private Set<UserQualificationDto> qualifications;
+    private Set<QualificationDto> qualifications;
 
     @Builder
-    public UserDto(Long id, @NotBlank String displayName, @Email @NotBlank String email, @NotNull String password, Set<UserQualificationDto> qualifications) {
+    public UserDto(Long id, @NotBlank String displayName, @Email @NotBlank String email, @NotNull String password, Set<QualificationDto> qualifications) {
         super(id);
         this.displayName = displayName;
         this.email = email;

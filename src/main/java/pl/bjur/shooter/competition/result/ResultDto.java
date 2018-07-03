@@ -11,7 +11,10 @@ import pl.bjur.shooter.user.UserDto;
 
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+
+import static pl.bjur.shooter.commons.Constants.RESULT_NOTE_MAX_CHARS;
 
 @Getter
 @Setter
@@ -35,6 +38,7 @@ public class ResultDto extends IdDto {
 
     private Integer centerHits;
 
+    @Size(max = RESULT_NOTE_MAX_CHARS)
     private String notes;
 
     private boolean outsideClassification;

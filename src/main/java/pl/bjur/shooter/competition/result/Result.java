@@ -11,9 +11,11 @@ import pl.bjur.shooter.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+
+import static pl.bjur.shooter.commons.Constants.RESULT_NOTE_MAX_CHARS;
 
 @Entity
 @Getter
@@ -39,6 +41,7 @@ public class Result extends IdEntity {
 
     private Integer centerHits;
 
+    @Size(max = RESULT_NOTE_MAX_CHARS)
     private String notes;
 
     private boolean outsideClassification;

@@ -4,9 +4,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.bjur.shooter.address.Address;
+import pl.bjur.shooter.address.AddressDto;
 import pl.bjur.shooter.commons.IdDto;
-import pl.bjur.shooter.user.User;
+import pl.bjur.shooter.user.UserDto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,12 +20,12 @@ public class ShootingRangeDto extends IdDto {
     private String name;
 
     @NotNull
-    private Address address;
+    private AddressDto address;
 
-    private User owner;
+    private UserDto owner;
 
     @Builder
-    public ShootingRangeDto(Long id, @NotBlank String name, @NotNull Address address, User owner) {
+    public ShootingRangeDto(Long id, @NotBlank String name, @NotNull AddressDto address, UserDto owner) {
         super(id);
         this.name = name;
         this.address = address;

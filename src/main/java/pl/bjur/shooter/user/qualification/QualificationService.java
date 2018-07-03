@@ -1,4 +1,4 @@
-package pl.bjur.shooter.user.userQualification;
+package pl.bjur.shooter.user.qualification;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,21 +7,21 @@ import javax.transaction.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class UserQualificationService {
+public class QualificationService {
 
-    private final UserQualificationRepository repository;
+    private final QualificationRepository repository;
 
     @Transactional
-    public UserQualification add(UserQualification entity) {
+    public Qualification add(Qualification entity) {
         return repository.create(entity);
     }
 
-    public UserQualification getById(Long id) {
+    public Qualification getById(Long id) {
         return repository.loadOne(id);
     }
 
     @Transactional
-    public UserQualification update(UserQualification entity) {
+    public Qualification update(Qualification entity) {
         return repository.updateExisting(entity);
     }
 
