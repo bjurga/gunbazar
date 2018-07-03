@@ -8,6 +8,8 @@ import pl.bjur.shooter.commons.exceptions.NotFoundException;
 
 import javax.persistence.EntityManager;
 
+import static java.util.Objects.isNull;
+
 @NoRepositoryBean
 public class BaseRepositoryImpl<T extends IdEntity> extends QuerydslJpaRepository<T, Long> implements BaseRepository<T> {
 
@@ -18,7 +20,7 @@ public class BaseRepositoryImpl<T extends IdEntity> extends QuerydslJpaRepositor
     @Override
     public T loadOne(Long id) {
         T entity = getOne(id);
-        if (entity == null) {
+        if (isNull(entity)) {
             throw new NotFoundException(id);
         }
         return entity;

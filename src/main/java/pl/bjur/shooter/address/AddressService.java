@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +29,9 @@ public class AddressService {
     @Transactional
     public void delete(Long id) {
         repository.deleteExisting(id);
+    }
+
+    public List<Address> getAll() {
+        return repository.findAll();
     }
 }

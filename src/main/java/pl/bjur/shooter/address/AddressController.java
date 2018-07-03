@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.bjur.shooter.commons.BaseController;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -14,6 +16,11 @@ public class AddressController implements BaseController<AddressDto> {
 
     private final MapperFacade mapper;
     private final AddressService service;
+
+    @GetMapping
+    public List<AddressDto> getAll() {
+        return service.getAll().stream().map(a -> mapper.map(a, AddressDto.class)).collect(Collectors.toList());
+    }
 
     @Override
     @GetMapping("/{id}")
@@ -28,7 +35,7 @@ public class AddressController implements BaseController<AddressDto> {
     }
 
     @Override
-    @PutMapping
+    @PutMapping("/{id}")
     public AddressDto update(@RequestBody @Valid AddressDto dto) {
         return mapper.map(service.update(mapper.map(dto, Address.class)), AddressDto.class);
     }

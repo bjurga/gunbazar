@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class Address extends IdEntity {
 
+
     @NotNull
     private String name;
 
