@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public abstract class EntityId {
+public abstract class IdEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,7 @@
 package pl.bjur.shooter.address;
 
 import lombok.*;
-import pl.bjur.shooter.commons.EntityId;
+import pl.bjur.shooter.commons.IdEntity;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
@@ -12,8 +12,8 @@ import javax.validation.constraints.NotNull;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Address extends EntityId {
+public class Address extends IdEntity {
+
 
     @NotNull
     private String name;
@@ -27,5 +27,5 @@ public class Address extends EntityId {
     @NotNull
     private String city;
 
-    private String phoneNumber;
+    private String phone;
 }

@@ -24,16 +24,16 @@ public class AddressDto extends IdDto {
 
     @NotNull
     private String city;
-
-    private String phoneNumber;
+  
+    private String phone;
 
     @Builder
-    public AddressDto(Long id, @NotNull String name, @NotNull String street, @NotNull String zipCode, @NotNull String city, String phoneNumber) {
+    public AddressDto(Long id, @NotNull String name, @NotNull String street, @NotNull String zipCode, @NotNull String city, String phone) {
         super(id);
         this.name = name;
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
     }
 }

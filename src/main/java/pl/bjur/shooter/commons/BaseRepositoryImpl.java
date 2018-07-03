@@ -11,7 +11,7 @@ import javax.persistence.EntityManager;
 import static java.util.Objects.isNull;
 
 @NoRepositoryBean
-public class BaseRepositoryImpl<T extends EntityId> extends QuerydslJpaRepository<T, Long> implements BaseRepository<T> {
+public class BaseRepositoryImpl<T extends IdEntity> extends QuerydslJpaRepository<T, Long> implements BaseRepository<T> {
 
     public BaseRepositoryImpl(JpaEntityInformation<T, Long> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);
