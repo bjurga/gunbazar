@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import pl.bjur.shooter.commons.GenericHelper
 
+import static pl.bjur.shooter.commons.TestDummies.getRandomName
 import static pl.bjur.shooter.commons.TestDummies.random
 
 @Component
@@ -16,25 +17,29 @@ class AddressHelper implements GenericHelper {
     static def CITY = "city" + random()
     static def STREET = "street" + random()
     static def ZIP_CODE = "zipCode" + random()
-    static def PHONE = "phone" + random()
+    static def PHONE = "+48 (32)" + random()
 
     @Override
-    def saveObject() {
-        addressRepository.save(newObject())
+    def saveEntity() {
+        addressRepository.save(getNewEntity())
+    }
+
+    def saveEntity(Address address) {
+        addressRepository.save(address)
     }
 
     @Override
-    def newObject() {
+    def getNewEntity() {
         Address.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phone(PHONE).build()
     }
 
     @Override
-    def newObjectDto() {
+    def getNewDto() {
         AddressDto.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phone(PHONE).build()
     }
 
     @Override
-    void assertEqualObject(def response, def dto) {
+    void assertEqualDto(def response, def dto) {
         assert response.name == dto.name
         assert response.street == dto.street
         assert response.zipCode == dto.zipCode
@@ -42,24 +47,13 @@ class AddressHelper implements GenericHelper {
         assert response.phone == dto.phone
     }
 
-// backup:
-//    def saveAddress() {
-//        addressRepository.save(newAddress())
-//    }
-//
-//    static def newAddress() {
-//        Address.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phone(PHONE).build()
-//    }
-//
-//    static def newAddressDto() {
-//        AddressDto.builder().name(NAME).city(CITY).street(STREET).zipCode(ZIP_CODE).phone(PHONE).build()
-//    }
+    static Address getRandomAddress() {
+        Address.builder().name(getRandomName()).city("city" + random()).street("street" + random())
+                .zipCode("zipCode" + random()).phone("+48 (32)" + random()).build()
+    }
 
-//    static void assertEqualAddress(def response, def dto) {
-//        assert response.name == dto.name
-//        assert response.street == dto.street
-//        assert response.zipCode == dto.zipCode
-//        assert response.city == dto.city
-//        assert response.phone == dto.phone
-//    }
+    static AddressDto getRandomAddressDto() {
+        AddressDto.builder().name(getRandomName()).city("city" + random()).street("street" + random())
+                .zipCode("zipCode" + random()).phone("+48 (32)" + random()).build()
+    }
 }

@@ -4,12 +4,12 @@ interface GenericHelper {
 
     BaseRepository repository
 
-    def saveObject()
+    def saveEntity()
 
-    def newObject()
+    def getNewEntity()
 
-    def newObjectDto()
+    def getNewDto()
 
-    void assertEqualObject(def o1, def o2)
+    void assertEqualDto(def response, def dto)
 }
 

@@ -2,10 +2,12 @@ package pl.bjur.shooter.commons
 
 import org.springframework.beans.factory.annotation.Autowired
 import pl.bjur.shooter.commons.exceptions.ERROR_CODE
+import spock.lang.Ignore
 
 import static pl.bjur.shooter.commons.AssertionUtil.assertErrorCode
-import static pl.bjur.shooter.commons.TestDummies.getNOT_EXISTING_ID
+import static pl.bjur.shooter.commons.TestDummies.NOT_EXISTING_ID
 
+@Ignore
 class GenericControllerIT<E extends IdEntity, D extends IdDto, H extends GenericHelper> extends BaseControllerIT {
 
     @Autowired
@@ -17,9 +19,9 @@ class GenericControllerIT<E extends IdEntity, D extends IdDto, H extends Generic
 
     def "Should return all"() {
         given:
-        helper.saveObject()
+        helper.saveEntity()
         def previousCount = getForDtos().size()
-        helper.saveObject()
+        helper.saveEntity()
 
         when:
         def response = getForDtos()
@@ -30,44 +32,44 @@ class GenericControllerIT<E extends IdEntity, D extends IdDto, H extends Generic
 
     def "Should create one"() {
         given:
-        D dto = helper.newObjectDto()
+        D dto = helper.getNewDto()
 
         when:
         def response = postForDto(dto)
 
         then:
-        helper.assertEqualObject(response, dto)
+        helper.assertEqualDto(response, dto)
     }
 
     def "Should return one"() {
         given:
-        E entity = helper.saveObject()
+        E entity = helper.saveEntity()
 
         when:
         def response = getForDto(entity.id)
 
         then:
-        helper.assertEqualObject(response, entity)   // asertujemy/porownujemy tutaj DTO z Entitym - WTF?
+        helper.assertEqualDto(response, entity)   // asertujemy/porownujemy tutaj DTO z Entitym - WTF?
         //// https://github.com/bjurga/gunbazar/issues/7
     }
 
     def "Should edit one"() {
         given:
-        E entity = helper.saveObject()
-        D editedAddressDto = helper.newObjectDto()
+        E entity = helper.saveEntity()
+        D editedAddressDto = helper.getNewDto()
         editedAddressDto.setId(entity.id)  //REVIEW: testy sie wyjebuja jesli tego ID tu niema. Jest obowiazkowe skoro podajemy model.id ?
 
         when:
         def response = putForDto(entity.id, editedAddressDto)
 
         then:
-        helper.assertEqualObject(response, editedAddressDto)
+        helper.assertEqualDto(response, editedAddressDto)
     }
 
     def "Should delete one"() {
         given:
         def previousCount = getForDtos().size()
-        E entity = helper.saveObject()
+        E entity = helper.saveEntity()
 
         when:
         def deleteResponse = deleteOne(entity.id)

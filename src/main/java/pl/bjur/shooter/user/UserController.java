@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import pl.bjur.shooter.commons.BaseController;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static pl.bjur.shooter.commons.ValidationUtils.validateEntityId;
 
 @RequiredArgsConstructor
 @RestController
@@ -14,6 +18,11 @@ public class UserController implements BaseController<UserDto> {
 
     private final MapperFacade mapper;
     private final UserService service;
+
+    @GetMapping
+    public List<UserDto> getAll() {
+        return service.getAll().stream().map(a -> mapper.map(a, UserDto.class)).collect(Collectors.toList());
+    }
 
     @Override
     @GetMapping("/{id}")
@@ -28,8 +37,9 @@ public class UserController implements BaseController<UserDto> {
     }
 
     @Override
-    @PutMapping
-    public UserDto update(@RequestBody @Valid UserDto dto) {
+    @PutMapping("/{id}")
+    public UserDto update(@PathVariable Long id, @RequestBody @Valid UserDto dto) {
+        validateEntityId(id, dto);
         return mapper.map(service.update(mapper.map(dto, User.class)), UserDto.class);
     }
 
