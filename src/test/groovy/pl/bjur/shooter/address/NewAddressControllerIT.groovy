@@ -5,6 +5,7 @@ import pl.bjur.shooter.commons.exceptions.ERROR_CODE
 
 import static pl.bjur.shooter.commons.AssertionUtil.assertErrorCode
 
+//TODO: rename to AddressControllerIT
 class NewAddressControllerIT extends GenericControllerIT<Address, AddressDto, AddressHelper> {
 
     def setupSpec() {
