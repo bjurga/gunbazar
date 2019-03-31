@@ -1,9 +1,6 @@
 package pl.bjur.shooter.shootingrange;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.address.Address;
 import pl.bjur.shooter.commons.IdEntity;
 import pl.bjur.shooter.user.User;
@@ -19,6 +16,7 @@ import javax.validation.constraints.NotNull;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ShootingRange extends IdEntity {
 
     @NotBlank

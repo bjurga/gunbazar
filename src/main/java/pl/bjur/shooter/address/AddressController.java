@@ -9,6 +9,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static pl.bjur.shooter.commons.ValidationUtils.validateEntityId;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/address")
@@ -36,7 +38,8 @@ public class AddressController implements BaseController<AddressDto> {
 
     @Override
     @PutMapping("/{id}")
-    public AddressDto update(@RequestBody @Valid AddressDto dto) {
+    public AddressDto update(@PathVariable Long id, @RequestBody @Valid AddressDto dto) {
+        validateEntityId(id, dto);
         return mapper.map(service.update(mapper.map(dto, Address.class)), AddressDto.class);
     }
 

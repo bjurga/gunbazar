@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition.category;
+package pl.bjur.shooter.tournament.competition;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CategoryDto extends IdDto {
+public class CompetitionDto extends IdDto {
 
     @NotBlank
     private String name;
@@ -20,7 +20,7 @@ public class CategoryDto extends IdDto {
     private String description;
 
     @Builder
-    public CategoryDto(Long id, @NotBlank String name, @NotBlank String description) {
+    public CompetitionDto(Long id, @NotBlank String name, @NotBlank String description) {
         super(id);
         this.name = name;
         this.description = description;

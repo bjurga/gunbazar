@@ -1,21 +1,24 @@
-package pl.bjur.shooter
+package pl.bjur.shooter.commons
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import groovy.json.JsonSlurper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.context.WebApplicationContext
+import pl.bjur.shooter.Application
 import spock.lang.Shared
 import spock.lang.Specification
 
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
+@ContextConfiguration
 class BaseControllerIT extends Specification {
 
     @Autowired
@@ -25,7 +28,7 @@ class BaseControllerIT extends Specification {
     protected MockMvc mvc
 
     @Shared
-    protected def endpointUrl
+    public def endpointUrl
 
     def setup() {
         mvc = MockMvcBuilders.webAppContextSetup(context).build()

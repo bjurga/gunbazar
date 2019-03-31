@@ -1,14 +1,11 @@
-package pl.bjur.shooter.competition;
+package pl.bjur.shooter.tournament;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.bjur.shooter.club.Club;
 import pl.bjur.shooter.commons.IdEntity;
-import pl.bjur.shooter.competition.category.Category;
-import pl.bjur.shooter.competition.result.Result;
 import pl.bjur.shooter.shootingrange.ShootingRange;
+import pl.bjur.shooter.tournament.competition.Competition;
+import pl.bjur.shooter.tournament.competition.result.Result;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -24,8 +21,8 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-//TODO: rename it to Tournament
-public class Competition extends IdEntity {
+@Builder
+public class Tournament extends IdEntity {
 
     @NotBlank
     private String name;
@@ -56,6 +53,6 @@ public class Competition extends IdEntity {
     private Set<Result> results;
 
     @OneToMany
-    private Set<Category> availableCategories;
+    private Set<Competition> availableCategories;
 
 }

@@ -1,12 +1,12 @@
-package pl.bjur.shooter.competition.result;
+package pl.bjur.shooter.tournament.competition.result;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.bjur.shooter.commons.IdDto;
-import pl.bjur.shooter.competition.CompetitionDto;
-import pl.bjur.shooter.competition.category.CategoryDto;
+import pl.bjur.shooter.tournament.TournamentDto;
+import pl.bjur.shooter.tournament.competition.CompetitionDto;
 import pl.bjur.shooter.user.UserDto;
 
 import javax.persistence.ManyToOne;
@@ -27,11 +27,11 @@ public class ResultDto extends IdDto {
 
     @NotNull
     @ManyToOne
-    private CompetitionDto competition;
+    private TournamentDto competition;
 
     @NotNull
     @ManyToOne
-    private CategoryDto category;
+    private CompetitionDto category;
 
     @NotNull
     private BigDecimal score;
@@ -46,8 +46,8 @@ public class ResultDto extends IdDto {
     private boolean disqualified;
 
     @Builder
-    public ResultDto(Long id, @NotNull UserDto user, @NotNull CompetitionDto competition,
-                     @NotNull CategoryDto category, @NotNull BigDecimal score, Integer centerHits, String notes,
+    public ResultDto(Long id, @NotNull UserDto user, @NotNull TournamentDto competition,
+                     @NotNull CompetitionDto category, @NotNull BigDecimal score, Integer centerHits, String notes,
                      boolean outsideClassification, boolean disqualified) {
         super(id);
         this.user = user;

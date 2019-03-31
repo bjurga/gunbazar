@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +29,9 @@ public class ShootingRangeService {
     @Transactional
     public void delete(Long id) {
         repository.deleteExisting(id);
+    }
+
+    public List<ShootingRange> getAll() {
+        return repository.findAll();
     }
 }

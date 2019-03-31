@@ -1,4 +1,4 @@
-package pl.bjur.shooter.competition.result;
+package pl.bjur.shooter.tournament.competition.result;
 
 import lombok.RequiredArgsConstructor;
 import ma.glasnost.orika.MapperFacade;
@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import pl.bjur.shooter.commons.BaseController;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static pl.bjur.shooter.commons.ValidationUtils.validateEntityId;
 
 @RequiredArgsConstructor
 @RestController
@@ -14,6 +18,11 @@ public class ResultController implements BaseController<ResultDto> {
 
     private final MapperFacade mapper;
     private final ResultService service;
+
+    @GetMapping
+    public List<ResultDto> getAll() {
+        return service.getAll().stream().map(a -> mapper.map(a, ResultDto.class)).collect(Collectors.toList());
+    }
 
     @Override
     @GetMapping("/{id}")
@@ -28,8 +37,9 @@ public class ResultController implements BaseController<ResultDto> {
     }
 
     @Override
-    @PutMapping
-    public ResultDto update(@RequestBody @Valid ResultDto dto) {
+    @PutMapping("/{id}")
+    public ResultDto update(@PathVariable Long id, @RequestBody @Valid ResultDto dto) {
+        validateEntityId(id, dto);
         return mapper.map(service.update(mapper.map(dto, Result.class)), ResultDto.class);
     }
 

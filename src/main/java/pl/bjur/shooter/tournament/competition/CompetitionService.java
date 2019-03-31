@@ -1,33 +1,38 @@
-package pl.bjur.shooter.competition.category;
+package pl.bjur.shooter.tournament.competition;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
+public class CompetitionService {
 
-    private final CategoryRepository repository;
+    private final CompetitionRepository repository;
 
     @Transactional
-    public Category add(Category entity) {
+    public Competition add(Competition entity) {
         return repository.create(entity);
     }
 
-    public Category getById(Long id) {
+    public Competition getById(Long id) {
         return repository.loadOne(id);
     }
 
     @Transactional
-    public Category update(Category entity) {
+    public Competition update(Competition entity) {
         return repository.updateExisting(entity);
     }
 
     @Transactional
     public void delete(Long id) {
         repository.deleteExisting(id);
+    }
+
+    public List<Competition> getAll() {
+        return repository.findAll();
     }
 }
 
